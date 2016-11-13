@@ -9,7 +9,18 @@ public:
 
 	explicit HeapSort(const vec_UInt &vec);
 	~HeapSort();
+
+
 	void MaxHeapify(const_uint index);
+	void BuildMaxheap();
+	void sortHeap();
+
+	//最大优先队列
+	const_uint Maximum() const;
+	const_uint ExtractMax();
+	bool HeapIncreaseKey(int index, uint key);
+	bool MaxHeapInsert(uint key);
+
 	void coutHeapifyResult();
 
 private:
@@ -24,5 +35,6 @@ private:
 		return (2 * index + 2);
 	}
 	vec_UInt m_Vec;
+	uint m_vecSize;
 };
 #endif // !HEAPSORT_H

@@ -4,9 +4,9 @@
 #include<iostream>
 
 void test1() {
-	std::vector<unsigned int> m_vec{ 23,24,14,6,13,10,1,5,7,12 };
+	std::vector<unsigned int> m_vec{ 4,1,3,2,16,9,10,14,8,7 };
 	HeapSort mheapSort(m_vec);
-	mheapSort.MaxHeapify(0);
+	mheapSort.sortHeap();
 	mheapSort.coutHeapifyResult();
 }
 
