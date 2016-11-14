@@ -82,7 +82,7 @@ bool HeapSort::HeapIncreaseKey(int index, uint key) {
 		return false;
 	}
 	m_Vec[index] = key;
-	while (index>=0&&m_Vec[Parent(index)]<m_Vec[index]) {
+	while (index>0&&m_Vec[Parent(index)]<m_Vec[index]) {
 		auto tmep = m_Vec[Parent(index)];
 		m_Vec[Parent(index)] = m_Vec[index];
 		m_Vec[index] = tmep;
@@ -94,7 +94,9 @@ bool HeapSort::HeapIncreaseKey(int index, uint key) {
 bool HeapSort::MaxHeapInsert(uint key) {
 	m_Vec.push_back(key);
 	m_vecSize += 1;
-	return HeapIncreaseKey(m_vecSize, key);
+	std::cout <<"m_vecSize: "<< m_vecSize << std::endl;
+	std::cout << "m_Vec: " << m_Vec.size() << std::endl;
+	return HeapIncreaseKey(m_vecSize-1, key);
 }
 
 

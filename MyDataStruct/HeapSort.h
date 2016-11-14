@@ -26,7 +26,8 @@ public:
 private:
 	//index 代表下标
 	const_uint Parent(const_uint index) const {
-		return (index / 2)-1;
+		auto res = (index / 2) - 1 <=0 ? 0 : (index / 2) - 1;
+		return res;
 	}
 	const_uint Left(const_uint index) const {
 		return (2 * index + 1);
