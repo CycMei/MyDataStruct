@@ -147,10 +147,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="HeapSort.h" />
+    <ClInclude Include="Median.h" />
+    <ClInclude Include="QSort.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="HeapSort.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Median.cpp" />
+    <ClCompile Include="QSort.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
