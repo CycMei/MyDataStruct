@@ -1,5 +1,7 @@
 #include "QSort.h"
 #include<iostream>
+#include<random>
+#include<ctime>
 
 QSort::QSort(std::vector<int> m_vec):m_vec(m_vec) {
 
@@ -46,11 +48,17 @@ void QSort::copyqsort(int begins, int ends) {
 }
 
 int QSort::RandomPartion(int begins, int ends) {
-	int i = random(begins, ends);
-	m_vec[i] = m_vec[begins];
+	std::uniform_int_distribution<unsigned int> u(begins, ends);
+	std::default_random_engine e;
+	std::cout << e.max() << std::endl;
+	int i = u(e);
+	std::cout << i<<"    ..    " << std::endl;
+	int temp = m_vec[i];
+	m_vec[i] = m_vec[ends];
+	m_vec[ends] = temp;
 	return Partition(begins, ends);
 }
-void QSort::RandomQSort(int begins, int ends) {}
+
 void QSort::RandomQSort(int begins, int ends) {
 	if (begins < ends) {
 		int q = RandomPartion(begins, ends);
