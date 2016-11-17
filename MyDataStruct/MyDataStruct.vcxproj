@@ -146,6 +146,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="CountSort.h" />
     <ClInclude Include="Gcd.h" />
     <ClInclude Include="Hash.h" />
     <ClInclude Include="HeapSort.h" />
@@ -155,6 +156,7 @@
     <ClInclude Include="TypeCompare.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CountSort.cpp" />
     <ClCompile Include="Gcd.cpp" />
     <ClCompile Include="HeapSort.cpp" />
     <ClCompile Include="main.cpp" />

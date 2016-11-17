@@ -8,7 +8,11 @@ public:
 	int MinMum();
 	int MaxMum();
 	std::vector<int> MinAndMaxMum();
+
+	int RandomSelect(int, int, const int);
 private:
+	int Partition(int begin, int end);
+	int RandomPartion(int begins, int ends);
 	std::vector<int> m_Vec;
 };
 #endif // !MEDIAN_H

@@ -12,6 +12,8 @@
 
 #include"Hash.h"
 
+#include"CountSort.h"
+
 #include<vector>
 #include<iostream>
 
@@ -32,9 +34,10 @@ void test1() {
 void test2() {
 	std::vector<int> m_vec{ 4,1,3,2,16,9,10,14,8,7 };
 	Median me(m_vec);
-	std::cout << me.MinMum() << std::endl;
-	std::cout << me.MaxMum() << std::endl;
-	std::cout << me.MinAndMaxMum()[0]<<"  ,  "<< me.MinAndMaxMum()[1] << std::endl;
+	//std::cout << me.MinMum() << std::endl;
+	//std::cout << me.MaxMum() << std::endl;
+	//std::cout << me.MinAndMaxMum()[0]<<"  ,  "<< me.MinAndMaxMum()[1] << std::endl;
+	std::cout<<"  ..  " << me.RandomSelect(0, m_vec.size() - 1, 4) << std::endl;
 }
 
 void test3() {
@@ -66,7 +69,14 @@ void test7() {
 	ha.myHash();
 }
 
+void test8() {
+	std::vector<int> m_vec{ 4,1,3,2,16,9,10,14,8,7 };
+	CountSort cs(m_vec);
+	cs.countSort();
+	cs.printVec();
+}
+
 void main() {
-	test7();
+	test8();
 	//std::cout << (5 / 2)-1 << std::endl;
 }
