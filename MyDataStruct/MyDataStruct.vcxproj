@@ -150,6 +150,7 @@
     <ClInclude Include="HeapSort.h" />
     <ClInclude Include="Median.h" />
     <ClInclude Include="QSort.h" />
+    <ClInclude Include="RandomEngine.h" />
     <ClInclude Include="TypeCompare.h" />
   </ItemGroup>
   <ItemGroup>
@@ -158,6 +159,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Median.cpp" />
     <ClCompile Include="QSort.cpp" />
+    <ClCompile Include="RandomEngine.cpp" />
     <ClCompile Include="TypeCompare.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

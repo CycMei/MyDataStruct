@@ -30,6 +30,9 @@
     <ClInclude Include="TypeCompare.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="RandomEngine.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="HeapSort.cpp">
@@ -48,6 +51,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="TypeCompare.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="RandomEngine.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

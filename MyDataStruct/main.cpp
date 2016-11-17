@@ -8,6 +8,8 @@
 
 #include"TypeCompare.h"
 
+#include"RandomEngine.h"
+
 #include<vector>
 #include<iostream>
 
@@ -52,7 +54,12 @@ void test5() {
 	typecompare.common_type();
 }
 
+void test6() {
+	RandomEngine reg;
+	reg.boolEngine();
+}
+
 void main() {
-	test5();
+	test6();
 	//std::cout << (5 / 2)-1 << std::endl;
 }
