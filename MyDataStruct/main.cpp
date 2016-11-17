@@ -10,6 +10,8 @@
 
 #include"RandomEngine.h"
 
+#include"Hash.h"
+
 #include<vector>
 #include<iostream>
 
@@ -59,7 +61,12 @@ void test6() {
 	reg.boolEngine();
 }
 
+void test7() {
+	Hash ha;
+	ha.myHash();
+}
+
 void main() {
-	test6();
+	test7();
 	//std::cout << (5 / 2)-1 << std::endl;
 }

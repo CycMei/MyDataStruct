@@ -147,6 +147,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Gcd.h" />
+    <ClInclude Include="Hash.h" />
     <ClInclude Include="HeapSort.h" />
     <ClInclude Include="Median.h" />
     <ClInclude Include="QSort.h" />
