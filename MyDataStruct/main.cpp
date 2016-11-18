@@ -77,6 +77,6 @@ void test8() {
 }
 
 void main() {
-	test8();
+	test7();
 	//std::cout << (5 / 2)-1 << std::endl;
 }

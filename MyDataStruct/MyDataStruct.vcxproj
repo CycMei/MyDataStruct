@@ -158,6 +158,7 @@
   <ItemGroup>
     <ClCompile Include="CountSort.cpp" />
     <ClCompile Include="Gcd.cpp" />
+    <ClCompile Include="Hash.cpp" />
     <ClCompile Include="HeapSort.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Median.cpp" />
