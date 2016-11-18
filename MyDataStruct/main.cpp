@@ -14,6 +14,8 @@
 
 #include"CountSort.h"
 
+#include"SetAndMap.h"
+
 #include<vector>
 #include<iostream>
 
@@ -76,7 +78,13 @@ void test8() {
 	cs.printVec();
 }
 
+void test9() {
+	SetAndMap sam;
+	//sam.process(std::vector<std::string>());
+	sam.swapForMap();
+}
+
 void main() {
-	test7();
+	test9();
 	//std::cout << (5 / 2)-1 << std::endl;
 }
