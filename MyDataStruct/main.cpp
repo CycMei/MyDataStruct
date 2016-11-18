@@ -81,7 +81,7 @@ void test8() {
 void test9() {
 	SetAndMap sam;
 	//sam.process(std::vector<std::string>());
-	sam.swapForMap();
+	sam.removeMap();
 }
 
 void main() {

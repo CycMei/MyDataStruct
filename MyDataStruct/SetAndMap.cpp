@@ -54,6 +54,20 @@ void SetAndMap::compareIsbn() {
 	bookstore.insert(sd);
 }
 
+void SetAndMap::removeMap() {
+	std::map<std::string, std::vector<std::string>> str_strVec_Map{
+		{ "chen",{ "cyc","cyx" } },
+		{ "luo",{ "lym","lzx" } }
+	};
+	std::cout << "删除个数：。。  " << str_strVec_Map.erase("chen") << std::endl;
+	if (str_strVec_Map.erase(str_strVec_Map.begin()) == str_strVec_Map.end())
+		std::cout << "删除成功。。。。。。。" << std::endl;
+	if(str_strVec_Map.insert({ "chen",{ "cyc","cyc" } }).second)
+		std::cout << "添加成功。。。。。。。" << std::endl;
+	str_strVec_Map.erase(str_strVec_Map.cbegin(), str_strVec_Map.cend());
+	std::cout << "元素个数。。。 " << str_strVec_Map.size() << str_strVec_Map.empty()<< std::endl;
+}
+
 
 
 void SetAndMap::mpair() {

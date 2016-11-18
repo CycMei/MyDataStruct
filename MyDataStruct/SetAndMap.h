@@ -6,7 +6,7 @@
 #include<map>
 class Sales_data {
 public:
-	Sales_data(int data) :_isbn(data) {
+	explicit Sales_data(int data) :_isbn(data) {
 
 	}
 	~Sales_data() {
@@ -43,6 +43,8 @@ public:
 	void insertMap();
 	void insertMap1();
 	void compareIsbn();
+
+	void removeMap();
 
 
 	void swapForMap();
