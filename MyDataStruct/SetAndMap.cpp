@@ -2,6 +2,8 @@
 
 #include<iostream>
 #include<set>
+#include<exception>
+#include<vld.h>
 
 #include<list>
 
@@ -66,6 +68,24 @@ void SetAndMap::removeMap() {
 		std::cout << "添加成功。。。。。。。" << std::endl;
 	str_strVec_Map.erase(str_strVec_Map.cbegin(), str_strVec_Map.cend());
 	std::cout << "元素个数。。。 " << str_strVec_Map.size() << str_strVec_Map.empty()<< std::endl;
+	str_strVec_Map["cyc"] = { "cyc","cyx" };
+	std::cout << "元素个数。。。 " << str_strVec_Map.size()<<"    " << str_strVec_Map.empty() << std::endl;
+
+	int *i = new int(3);
+	try {
+		str_strVec_Map.at("abc");
+		//std::out_of_range ofr("cccc");
+		//throw ofr;
+		
+	}
+	catch (const std::out_of_range &ofr) {
+		
+		std::cout<<"what     " << ofr.what() << std::endl;
+
+	}
+	delete i;
+	std::cout << "元素个数。。。 " << str_strVec_Map.size() << "    " << str_strVec_Map.empty() << std::endl;
+	std::cout << "cyc:  " << (*str_strVec_Map.find(std::string("cyc"))).first << std::endl;
 }
 
 
@@ -160,7 +180,7 @@ void SetAndMap::insertMap1() {
 
 	std::pair<std::map<std::string, std::size_t>::iterator, bool> res1 = word_count.emplace(std::make_pair("lym",3));
 	if (res1.second) {
-		std::cout << "insert sucessed.....   " << std::endl;
+		std::cout << "insert sucesse	d.....   " << std::endl;
 	}
 }
 

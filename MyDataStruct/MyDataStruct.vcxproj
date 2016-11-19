@@ -153,6 +153,7 @@
     <ClInclude Include="Median.h" />
     <ClInclude Include="QSort.h" />
     <ClInclude Include="RandomEngine.h" />
+    <ClInclude Include="RandomReSort.h" />
     <ClInclude Include="SetAndMap.h" />
     <ClInclude Include="TypeCompare.h" />
   </ItemGroup>
@@ -165,6 +166,7 @@
     <ClCompile Include="Median.cpp" />
     <ClCompile Include="QSort.cpp" />
     <ClCompile Include="RandomEngine.cpp" />
+    <ClCompile Include="RandomReSort.cpp" />
     <ClCompile Include="SetAndMap.cpp" />
     <ClCompile Include="TypeCompare.cpp" />
   </ItemGroup>

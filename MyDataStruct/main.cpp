@@ -16,6 +16,8 @@
 
 #include"SetAndMap.h"
 
+#include"RandomReSort.h"
+
 #include<vector>
 #include<iostream>
 
@@ -84,7 +86,12 @@ void test9() {
 	sam.removeMap();
 }
 
+void test10() {
+	RandomReSort res;
+	res.myRandomSort();
+}
+
 void main() {
-	test9();
+	test10();
 	//std::cout << (5 / 2)-1 << std::endl;
 }
