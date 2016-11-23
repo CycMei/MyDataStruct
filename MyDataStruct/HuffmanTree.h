@@ -1,18 +1,32 @@
 #ifndef HUFFMANTREE_H
 #define HUFFMANTREE_H
 #include<vector>
+#include<iostream>
 
-struct sNode {
-	int left;
-	int right;
-	int freq;
+class CNode {
+private:
+	friend bool operator<(const CNode&, const CNode&);
+	friend std::ostream &operator<<(std::ostream &os,const CNode &obj);
+public:
+	explicit CNode(const int key);
+	CNode();
+	~CNode();
+public:
+	int &getKey() {return key;}
+	CNode *&getLeft() {return left;}
+	CNode *&getRight() {return right;}
+private:
+	CNode *parent;
+	CNode *left;
+	CNode *right;
+	int key;
 };
 
 
 
 class HuffmanTree {
 public:
-	explicit HuffmanTree(const std::vector<int>);
+	explicit HuffmanTree(const std::vector<CNode>);
 	~HuffmanTree() {
 
 	}
@@ -20,9 +34,9 @@ public:
 	void BuildMinheap();
 	void sortHeap();
 
-	int ExtractMin();
-	void heapIncreaseKey(int index,const int key);
-	void heapInsert(const int key);
+	CNode ExtractMin();
+	void heapIncreaseKey(int index, CNode );
+	void heapInsert(CNode);
 
 	void HuffMan();
 
@@ -40,7 +54,7 @@ private:
 	}
 	void mSwap(const int curIndex, const int nextIndex);
 private:
-	std::vector<int> vArr;
+	std::vector<CNode> vArr;
 	int vArrSize = 0;
 	//261,99
 };
