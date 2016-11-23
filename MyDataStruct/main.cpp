@@ -101,8 +101,13 @@ void test12() {
 	myInsert();
 }
 
+void myHuffmanTree();
+void test13() {
+	myHuffmanTree();
+}
+
 
 
 void main() {
-	test12();
+	test13();
 }

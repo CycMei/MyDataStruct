@@ -150,6 +150,7 @@
     <ClInclude Include="Gcd.h" />
     <ClInclude Include="Hash.h" />
     <ClInclude Include="HeapSort.h" />
+    <ClInclude Include="HuffmanTree.h" />
     <ClInclude Include="InsertSort.h" />
     <ClInclude Include="Median.h" />
     <ClInclude Include="QSort.h" />
@@ -164,6 +165,7 @@
     <ClCompile Include="Gcd.cpp" />
     <ClCompile Include="Hash.cpp" />
     <ClCompile Include="HeapSort.cpp" />
+    <ClCompile Include="HuffmanTree.cpp" />
     <ClCompile Include="InsertSort.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Median.cpp" />
