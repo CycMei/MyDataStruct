@@ -91,7 +91,18 @@ void test10() {
 	res.myRandomSort();
 }
 
+void myPointerToMember();
+void test11() {
+	myPointerToMember();
+}
+
+void myInsert();
+void test12() {
+	myInsert();
+}
+
+
+
 void main() {
-	test10();
-	//std::cout << (5 / 2)-1 << std::endl;
+	test12();
 }

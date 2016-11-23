@@ -35,3 +35,8 @@ void RandomReSort::myRandomSort() {
 	}
 	std::cout << std::endl;
 }
+
+double Rand(double dMin, double dMax) {
+	double dVal = (double)rand() / RAND_MAX;
+	return dMin + dVal*(dMax - dMin);
+}
