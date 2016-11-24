@@ -94,6 +94,7 @@ CNode HuffmanTree::ExtractMin() {
 	}
 	CNode min = vArr[0];
 	vArr[0] = vArr[vArrSize];
+	//vArr.pop_back();
 	vArrSize -= 1;
 	MinHeapify(0);
 	return min;
@@ -101,8 +102,7 @@ CNode HuffmanTree::ExtractMin() {
 
 void HuffmanTree::heapIncreaseKey(int index, CNode node) {
 
-	if (node < vArr[index])
-		std::cout << index<<"   eroo...heapIncreakey..." << node.getKey()<< std::endl;
+
 	vArr[index] = node;
 	while (index > 0 && vArr[index]<vArr[Parent(index)] ) {
 		mSwap(index, Parent(index));
@@ -125,6 +125,7 @@ void HuffmanTree::HuffMan() {
 		cnode.getRight() = &(ExtractMin());
 		cnode.getKey() = cnode.getLeft()->getKey() + cnode.getRight()->getKey();
 		heapInsert(cnode);
+		coutHeapifyResult();
 	}
 }
 
@@ -133,7 +134,7 @@ void HuffmanTree::HuffMan() {
 
 
 void myHuffmanTree() {
-	std::vector<int> vec{ 16,4,86,44,32,20,1,5,7,9,74,65,12 };
+	std::vector<int> vec{ 4,6,3,20,1,5,7,9,12 };
 	std::vector<CNode> vCNode;
 	for (const auto &c : vec) {
 		vCNode.push_back(CNode(c));
@@ -143,7 +144,7 @@ void myHuffmanTree() {
 	ht.BuildMinheap();
 	ht.coutHeapifyResult();
 	ht.HuffMan();
-	ht.coutHeapifyResult();
+	
 }
 
 

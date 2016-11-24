@@ -18,6 +18,8 @@
 
 #include"RandomReSort.h"
 
+#include"BinarySearchTree.h"
+
 #include<vector>
 #include<iostream>
 
@@ -106,8 +108,12 @@ void test13() {
 	myHuffmanTree();
 }
 
+void myCBSTree();
+void test14() {
+	myCBSTree();
+}
 
 
 void main() {
-	test13();
+	test14();
 }

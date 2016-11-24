@@ -146,6 +146,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="BinarySearchTree.h" />
     <ClInclude Include="CountSort.h" />
     <ClInclude Include="Gcd.h" />
     <ClInclude Include="Hash.h" />
@@ -161,6 +162,7 @@
     <ClInclude Include="TypeCompare.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BinarySearchTree.cpp" />
     <ClCompile Include="CountSort.cpp" />
     <ClCompile Include="Gcd.cpp" />
     <ClCompile Include="Hash.cpp" />
