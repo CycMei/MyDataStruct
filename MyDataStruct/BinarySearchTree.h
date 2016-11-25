@@ -26,7 +26,11 @@ private:
 	using S_CBSTN = std::shared_ptr<CBSTreeNode<T>>;
 public:
 	CBSTree();
+	~CBSTree() {};
 	void CBSTreeInsert(const T value);
+	void printCBSTreeNodes() { coutTreeNodes(root); }
+private:
+	void coutTreeNodes(S_CBSTN node);
 private:
 	S_CBSTN root;
 
@@ -44,13 +48,13 @@ catch (...) {
 
 
 template<typename T> void CBSTree<T>::CBSTreeInsert(const T value) {
-	S_CBSTN preNode = nullptr;
-	S_CBSTN nextNode = root;
-	S_CBSTN keys(std::make_shared<CBSTreeNode<T>>(value));
+	S_CBSTN keys = std::make_shared<CBSTreeNode<T>>(value);
 	if (!root) {
 		root = keys;
 		return;
 	}
+	S_CBSTN preNode = nullptr;
+	S_CBSTN nextNode = root;
 		
 	while (nextNode) {
 		preNode = nextNode;
@@ -60,6 +64,7 @@ template<typename T> void CBSTree<T>::CBSTreeInsert(const T value) {
 			nextNode = nextNode->right;
 	}
 
+	//keys->parent =std::make_shared<CBSTreeNode<T>>(preNode->key);
 	keys->parent = preNode;
 	if (keys->key < preNode->key) {
 		preNode->left = keys;
@@ -67,6 +72,15 @@ template<typename T> void CBSTree<T>::CBSTreeInsert(const T value) {
 	else {
 		preNode->right = keys;
 	}
+}
+
+
+template<typename T> void CBSTree<T>::coutTreeNodes(S_CBSTN node) {
+	if (!node)
+		return;
+	coutTreeNodes(node->left);
+	std::cout << node->key << "   ";
+	coutTreeNodes(node->right);
 }
 
 
@@ -91,6 +105,6 @@ catch (...) {
 
 
 //33333333
-template<typename T> inline CBSTreeNode<T>::~CBSTreeNode() {
-
+template<typename T> CBSTreeNode<T>::~CBSTreeNode() {
+	std::cout << "delete BSTreeNode.." << std::endl;
 }
