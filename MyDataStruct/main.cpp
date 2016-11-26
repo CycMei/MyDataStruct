@@ -114,8 +114,17 @@ void test14() {
 	myCBSTree();
 }
 
+void myChart();
+void test15() {
+	myChart();
+}
+
 
 void main() {
 	
+<<<<<<< HEAD
 	test13();
+=======
+	test15();
+>>>>>>> origin/master
 }
