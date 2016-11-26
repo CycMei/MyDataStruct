@@ -121,10 +121,5 @@ void test15() {
 
 
 void main() {
-	
-<<<<<<< HEAD
-	test13();
-=======
 	test15();
->>>>>>> origin/master
 }
