@@ -7,13 +7,17 @@
 #include<string>
 #include<exception>
 
+enum Color { BLACK, WHITE, GRAY };
 using vvInt = const std::vector<std::vector<int>>;
 struct ENode;
 using SP_Enode = std::shared_ptr<ENode>;
 struct ENode {
 	int ivex;
 	SP_Enode nextEdge;
-	ENode(const int i):ivex(i),nextEdge(nullptr){}
+	SP_Enode parent;
+	Color color;
+	int distance;
+	ENode(const int i):ivex(i),distance(-1),color(WHITE),parent(nullptr),nextEdge(nullptr){}
 };
 struct VNode {
 	int data;
@@ -35,6 +39,7 @@ private:
 	SP_Enode isConstructorEnode(const int &index);
 public:
 	Chart(const int, const int, vvInt);
+	void WidtchFirstSearch();
 	~Chart(){}
 };
 

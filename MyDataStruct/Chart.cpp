@@ -1,13 +1,16 @@
 #include"Chart.h"
-
+#include<deque>
 
 
 void Chart::LinkLast(SP_Enode curNode, SP_Enode nextNode) {
 	SP_Enode temp = curNode;
+	SP_Enode temp1 = temp;
 	SP_Enode preNode = nullptr;
 	while (temp) {
 		preNode = temp;
 		temp = temp->nextEdge;
+		if (temp&&temp->ivex == temp1->ivex)
+			break;
 	}
 	preNode->nextEdge = nextNode;
 }
@@ -61,6 +64,28 @@ catch (const std::exception &ex) {
 	std::cout << "constructor Chart...erro..." << ex.what() << std::endl;
 }
 
+void Chart::WidtchFirstSearch() {
+	vecVNode[0].firstEdge->color = GRAY;
+	vecVNode[0].firstEdge->distance = 0;
+	vecVNode[0].firstEdge->parent = nullptr;
+	std::deque<SP_Enode> dequeNode{ vecVNode[0].firstEdge };
+	while (!dequeNode.empty()) {
+		std::cout << "....   " << std::endl;
+		SP_Enode temp = vecVNode[(*(dequeNode.begin()))->ivex].firstEdge;
+		SP_Enode copyTemp = temp;
+		dequeNode.pop_front();
+		while (temp) {
+			if (temp->color == WHITE) {
+				temp->color = GRAY;
+				temp->distance += 1;
+				dequeNode.push_back(temp);
+			}
+			temp = temp->nextEdge;
+		}
+		copyTemp->color = BLACK;
+	}
+}
+
 
 
 
@@ -77,4 +102,5 @@ void myChart() {
 		{6,4},{6,5}
 	};
 	Chart chart(vNum, eNum, vec);
+	chart.WidtchFirstSearch();
 }
