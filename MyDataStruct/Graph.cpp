@@ -131,6 +131,7 @@ namespace GraphStruct {
 		restStaticTime();
 		for (const auto &c : node) {
 			if (c->color == ColorType::WHRITE) {
+				std::cout << "vvvv   " << std::endl;
 				curList.clear();
 				DFSVisit(node, c);
 				topList.push_back(curList);
@@ -200,14 +201,14 @@ void myChart() {
 	};
 	std::vector<std::vector<int>> vec1{
 		//有向图
-		{0,1},
-		{1,2},{1,4}, { 1,5 },
-		{2,3},{2,6},
-		{3,2},{3,7},
-		{4,0},{4,5},
-		{5,6},
-		{6,5},{6,7},
-		{7,7}
+		{0,1},{0,4},
+		{1,2},{1,3},
+		{2,1},
+		{3,3},
+		{4,0},{4,3},
+		{5,0},{ 5,6 } ,{5,2},
+		{6,2},{6,7},
+		{7,5}
 	};
 	//////////
 	//GraphStruct::Graph graph(8, 10, vec);
