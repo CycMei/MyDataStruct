@@ -14,11 +14,12 @@ namespace GraphStruct {
 	using SPArcNode = std::shared_ptr<SArcNode>;
 	//边表结点
 	struct SArcNode {
-		const int adjvex;						//该边指向的结点
+		const int adjvex;	//该边指向的结点
 		SPArcNode nextArc;	//指向下一条边
 		explicit SArcNode(const int data) :adjvex(data), nextArc(nullptr) {
 
 		}
+		~SArcNode(){}
 	};
 
 	//头结点
@@ -34,9 +35,8 @@ namespace GraphStruct {
 		unsigned int endTime;			//结束时间
 		explicit SVNode(const int data) :
 			data(data), firstArc(nullptr), color(ColorType::WHRITE), parent(nullptr), distance(-1),
-			begTime(-1), endTime(-1){
-
-		}
+			begTime(-1), endTime(-1){}
+		~SVNode(){}
 	};
 
 	// 图
@@ -44,7 +44,7 @@ namespace GraphStruct {
 	public:
 		Graph(int cuiVexNum, int cuiArcNum,const std::vector<std::vector<int>>);
 		~Graph(){}
-		void printGraph(const std::vector<SPSVNode> &);
+		void printGraph(const std::vector<SPSVNode>&);
 		void BFS();
 		void printBFS(const int index);
 		void DFS(const std::vector<SPSVNode>&);
@@ -62,8 +62,8 @@ namespace GraphStruct {
 		int iVexNum;							//图的顶点数
 		int iArcNum;							//图的边数
 		static unsigned int time;				//全局时间
-		std::list<int> topList;					//拓扑链表
-		std::vector<std::vector<int>> vedge;	//边集合的拷贝
+		std::list<std::list<int>> topList;		//拓扑链表
+		std::list<int> curList;					//一个节点的链表(深度搜索结果是深林)
 		std::vector<SPSVNode> copyvNode;		//图的转置
 	};
 }

@@ -9,6 +9,7 @@ namespace GraphStruct {
 
 	unsigned int Graph::time = 0;
 
+	//构造图，传进来的是图的完全表示（无向图的所有边）
 	Graph::Graph(int cuiVexNum, int cuiArcNum,const std::vector<std::vector<int>> edge)
 		try :iVexNum(cuiVexNum), iArcNum(cuiArcNum) {
 		std::logic_error le("arcNum or edge or vexNum erro");
@@ -23,7 +24,6 @@ namespace GraphStruct {
 					throw le;
 			}
 		}
-		vedge = edge;
 			
 		for (int i = 0; i != cuiVexNum; ++i) {
 			vNode.push_back(std::make_shared<SVNode>(i));
@@ -50,6 +50,7 @@ namespace GraphStruct {
 		std::cout << erro.what() << std::endl;
 	}
 
+	//打印图的邻接链表
 	void Graph::printGraph(const std::vector<SPSVNode> &node) {
 		for (const auto c : node) {
 			auto temp = c->firstArc;
@@ -60,41 +61,19 @@ namespace GraphStruct {
 			std::cout << std::endl;
 		}
 	}
-	
+
+	//重置每个顶点
 	void Graph::restNode(const std::vector<SPSVNode> &node) {
 		for (auto &c : node) {
 			c->color = ColorType::WHRITE;
 			c->parent = nullptr;
 			c->distance = 0;
-			c->parent = nullptr;
 			c->begTime = 0;
 			c->endTime = 0;
 		}
 	}
 
-	void Graph::DFSVisit(const std::vector<SPSVNode> &Node,SPSVNode node) {
-		++time;
-		node->begTime = time;
-		node->color = ColorType::GRAY;
-		SPArcNode tempNode = node->firstArc;
-		while (tempNode) {
-			SPSVNode vnode = Node[tempNode->adjvex];
-			if (vnode->color == ColorType::WHRITE) {
-				vnode->parent = node;
-				DFSVisit(Node,vnode);
-			}
-			tempNode = tempNode->nextArc;
-			//if (vnode->color == ColorType::BLACK)
-			//	tempNode = tempNode->nextArc;
-			//else
-			//	break;
-		}
-		node->color = ColorType::BLACK;
-		++time;
-		node->endTime = time;
-		topList.push_back(node->data);
-	}
-
+	//有向图的转置
 	void Graph::Graph_T() {
 		for (const auto c : vNode) {
 			SPArcNode temp = c->firstArc;
@@ -118,6 +97,48 @@ namespace GraphStruct {
 		}
 	}
 
+	//打印拓扑链表
+	void Graph::printTopList() {
+		std::cout << "top list..." << std::endl;
+		for (const auto c : topList) {
+			std::copy(c.cbegin(), c.cend(), std::ostream_iterator<int>(std::cout, " "));
+			std::cout<<" , " << std::endl;
+		}
+	}
+
+	//深度搜素
+	void Graph::DFSVisit(const std::vector<SPSVNode> &Node,SPSVNode node) {
+		++time;
+		node->begTime = time;
+		node->color = ColorType::GRAY;
+		SPArcNode tempNode = node->firstArc;
+		while (tempNode) {
+			SPSVNode vnode = Node[tempNode->adjvex];
+			if (vnode->color == ColorType::WHRITE) {
+				vnode->parent = node;
+				DFSVisit(Node,vnode);
+			}
+			tempNode = tempNode->nextArc;
+		}
+		node->color = ColorType::BLACK;
+		++time;
+		node->endTime = time;
+		curList.push_back(node->data);
+	}
+
+	void Graph::DFS(const std::vector<SPSVNode> &node) {
+		restNode(node);
+		restStaticTime();
+		for (const auto &c : node) {
+			if (c->color == ColorType::WHRITE) {
+				curList.clear();
+				DFSVisit(node, c);
+				topList.push_back(curList);
+			}
+		}
+	}
+
+	//广度搜索
 	void Graph::BFS() {
 		restNode(vNode);
 		vNode[0]->color = ColorType::GRAY;
@@ -155,23 +176,7 @@ namespace GraphStruct {
 		std::cout << std::endl;
 	}
 
-	void Graph::DFS(const std::vector<SPSVNode> &node) {
-		restNode(node);
-		restStaticTime();
-		for (const auto &c : node) {
-			if (c->color == ColorType::WHRITE) {
-				DFSVisit(node,c);
-				topList.push_back(-1);
-			}
-		}
-	}
-
-	void Graph::printTopList() {
-		std::cout << "top list..." << std::endl;
-		std::copy(topList.cbegin(), topList.cend(), std::ostream_iterator<int>(std::cout, " "));
-		std::cout << std::endl;
-	}
-
+	//连通分量
 	void Graph::unions() {
 		Graph_T();
 		printGraph(copyvNode);
