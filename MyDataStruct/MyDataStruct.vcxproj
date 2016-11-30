@@ -147,7 +147,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="BinarySearchTree.h" />
-    <ClInclude Include="Chart.h" />
+    <ClInclude Include="Graph.h" />
     <ClInclude Include="CNode.h" />
     <ClInclude Include="CountSort.h" />
     <ClInclude Include="Gcd.h" />
@@ -156,6 +156,7 @@
     <ClInclude Include="HuffmanTree.h" />
     <ClInclude Include="InsertSort.h" />
     <ClInclude Include="Median.h" />
+    <ClInclude Include="CNameSpace.h" />
     <ClInclude Include="QSort.h" />
     <ClInclude Include="RandomEngine.h" />
     <ClInclude Include="RandomReSort.h" />
@@ -165,7 +166,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BinarySearchTree.cpp" />
-    <ClCompile Include="Chart.cpp" />
+    <ClCompile Include="Graph.cpp" />
+    <ClCompile Include="CNameSpace.cpp" />
     <ClCompile Include="CountSort.cpp" />
     <ClCompile Include="Gcd.cpp" />
     <ClCompile Include="Hash.cpp" />

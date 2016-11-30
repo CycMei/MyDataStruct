@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="头文件\GraphStruct">
+      <UniqueIdentifier>{c1eb88ac-1698-49de-954e-7c07c3249f25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\GraphStruct">
+      <UniqueIdentifier>{d03c62ce-68b9-4bc5-8da6-10919c63bed6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HeapSort.h">
@@ -57,11 +63,14 @@
     <ClInclude Include="BinarySearchTree.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Chart.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="CNode.h">
       <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CNameSpace.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Graph.h">
+      <Filter>头文件\GraphStruct</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -110,8 +119,11 @@
     <ClCompile Include="BinarySearchTree.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Chart.cpp">
+    <ClCompile Include="CNameSpace.cpp">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Graph.cpp">
+      <Filter>源文件\GraphStruct</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
