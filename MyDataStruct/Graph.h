@@ -16,7 +16,11 @@ namespace GraphStruct {
 	struct SArcNode {
 		const int adjvex;	//该边指向的结点
 		SPArcNode nextArc;	//指向下一条边
-		explicit SArcNode(const int data) :adjvex(data), nextArc(nullptr) {
+		const int doc;		//权值
+		SArcNode(const int data, const int edge) :adjvex(data), nextArc(nullptr), doc(edge) {
+
+		}
+		explicit SArcNode(const int data) :adjvex(data), nextArc(nullptr),doc(0) {
 
 		}
 		~SArcNode(){}
