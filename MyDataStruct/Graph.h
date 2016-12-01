@@ -48,21 +48,24 @@ namespace GraphStruct {
 		void BFS();
 		void printBFS(const int index);
 		void DFS(const std::vector<SPSVNode>&);
-		void printTopList();
+		void printTopList(const std::list<std::list<int>> &list);
 		void unions();
 		const std::vector<SPSVNode> &getvNode() const { return vNode; }
-		const std::vector<SPSVNode> &getcopyvNode() const { return copyvNode; };
+		const std::vector<SPSVNode> &getcopyvNode() const { return copyvNode; }
+		const std::list<std::list<int>> getTopList() const{ return ctopList; }
 	private:
 		void restNode(const std::vector<SPSVNode> &);
 		void DFSVisit(const std::vector<SPSVNode> &,SPSVNode);
 		void restStaticTime() {time = 0;}
 		void Graph_T();
+		void copyDFS(const std::vector<SPSVNode> &node);
 	private:
 		std::vector<SPSVNode> vNode;			//图的所有顶点
 		int iVexNum;							//图的顶点数
 		int iArcNum;							//图的边数
 		static unsigned int time;				//全局时间
 		std::list<std::list<int>> topList;		//拓扑链表
+		std::list<std::list<int>> ctopList;		//拓扑链表
 		std::list<int> curList;					//一个节点的链表(深度搜索结果是深林)
 		std::vector<SPSVNode> copyvNode;		//图的转置
 	};
