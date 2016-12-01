@@ -19,6 +19,9 @@
     <Filter Include="源文件\GraphStruct">
       <UniqueIdentifier>{d03c62ce-68b9-4bc5-8da6-10919c63bed6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\Algorithm">
+      <UniqueIdentifier>{06b8d437-e54e-481c-9c15-2ae1fcf0cb81}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HeapSort.h">
@@ -124,6 +127,9 @@
     </ClCompile>
     <ClCompile Include="Graph.cpp">
       <Filter>源文件\GraphStruct</Filter>
+    </ClCompile>
+    <ClCompile Include="Algorithm.cpp">
+      <Filter>源文件\Algorithm</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

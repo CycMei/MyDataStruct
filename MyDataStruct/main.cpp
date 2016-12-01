@@ -120,7 +120,11 @@ void test15() {
 	myChart();
 }
 
+void myAlogrithm();
+void test16() {
+	myAlogrithm();
+}
 
 void main() {
-	test15();
+	test16();
 }
