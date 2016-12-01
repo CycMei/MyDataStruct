@@ -52,6 +52,7 @@ namespace GraphStruct {
 
 	//打印图的邻接链表
 	void Graph::printGraph(const std::vector<SPSVNode> &node) {
+		std::cout << "邻接链表： >>>>>  " << std::endl;
 		for (const auto c : node) {
 			auto temp = c->firstArc;
 			while (temp) {
@@ -98,9 +99,9 @@ namespace GraphStruct {
 	}
 
 	//打印拓扑链表
-	void Graph::printTopList() {
+	void Graph::printTopList(const std::list<std::list<int>> &list) {
 		std::cout << "top list..." << std::endl;
-		for (const auto c : topList) {
+		for (const auto c : list) {
 			std::copy(c.cbegin(), c.cend(), std::ostream_iterator<int>(std::cout, " "));
 			std::cout<<" , " << std::endl;
 		}
@@ -123,15 +124,17 @@ namespace GraphStruct {
 		node->color = ColorType::BLACK;
 		++time;
 		node->endTime = time;
+		//std::cout << node->data << " < --- " << " ";
 		curList.push_back(node->data);
 	}
 
 	void Graph::DFS(const std::vector<SPSVNode> &node) {
 		restNode(node);
 		restStaticTime();
+		topList.clear();
 		for (const auto &c : node) {
 			if (c->color == ColorType::WHRITE) {
-				std::cout << "vvvv   " << std::endl;
+				//std::cout << "vvvv   " << std::endl;
 				curList.clear();
 				DFSVisit(node, c);
 				topList.push_back(curList);
@@ -180,11 +183,29 @@ namespace GraphStruct {
 	//连通分量
 	void Graph::unions() {
 		Graph_T();
+		std::cout << "cccccss  转置  " << std::endl;
 		printGraph(copyvNode);
-		DFS(copyvNode);
-		printTopList();
+		copyDFS(copyvNode);
+		std::cout << "cccc  top list..." << std::endl;
+		printTopList(ctopList);
 	}
-	
+
+	void Graph::copyDFS(const std::vector<SPSVNode> &node) {
+		restNode(node);
+		restStaticTime();
+		ctopList.clear();
+		for (auto beg = topList.crbegin(); beg != topList.crend(); ++beg) {
+			for (auto cbeg = beg->crbegin(); cbeg != beg->crend(); ++cbeg) {
+				const int index = *cbeg;
+				if (copyvNode[index]->color == ColorType::WHRITE) {
+					std::cout << "vvvv   " << std::endl;
+					curList.clear();
+					DFSVisit(node, copyvNode[index]);
+					ctopList.push_back(curList);
+				}
+			}
+		}
+	}	
 }
 
 
@@ -210,22 +231,12 @@ void myChart() {
 		{6,2},{6,7},
 		{7,5}
 	};
-	//////////
-	//GraphStruct::Graph graph(8, 10, vec);
-	//graph.printGraph();
-	//graph.BFS();
-	//graph.printBFS(3);
-	//graph.DFS();
-	//graph.printTopList();
-	//std::cout<<"DFS reslutl...  " << std::endl;
-	//graph.printBFS(7);
-	//graph.printBFS(6);
-	//////////
+
 	GraphStruct::Graph cgraph(8, vec1.size(), vec1);
 	cgraph.printGraph(cgraph.getvNode());
 	cgraph.DFS(cgraph.getvNode());
-	cgraph.printTopList();
-	std::cout << "cccccss  转置  " << std::endl;
+	cgraph.printTopList(cgraph.getTopList());
+	
 	cgraph.unions();
 	
 }
