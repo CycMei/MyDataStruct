@@ -125,6 +125,48 @@ void test16() {
 	myAlogrithm();
 }
 
+void strtest(const std::string &str) {
+
+	//const int iaa = 23;
+	//int copyiaa = const_cast<int>(iaa);
+
+	const int i = 3;
+	const int *pi = &i;
+	int *ppi = const_cast<int*>(pi);
+	*ppi = 33;
+	std::cout << i << std::endl;
+
+	char c = 'a';
+	const char * pc = &c;
+	char *ppc = const_cast<char*>(pc);
+	*ppc = 'c';
+
+	const int ica = 100;
+	int *ia = const_cast<int*>(&ica);
+	*ia = 200;
+	if (ica == *ia) {
+		//些在编译期间完成，对于内置类型，如int，编译器可能使用常数直接替换掉对此变量的引用。而对于结构体不一定。
+		//const型在压栈时，是使用的直接的数，
+		std::cout << "chagned ...  " << std::endl;
+	}
+	std::cout << *ia << " , " << ica << std::endl;
+
+	int refA = 32;
+	const int &crefA = refA;
+	int &ccre = const_cast<int&>(crefA);
+	ccre = 50;
+	std::cout << refA << " , " << crefA << " , " << ccre << std::endl;
+
+}
+void copystrtest(std::string &str) {
+
+}
+void test17() {
+	char buffer[] = "buffer";
+	strtest(buffer);
+	//copystrtest(buffer);
+}
+
 void main() {
-	test16();
+	test17();
 }
